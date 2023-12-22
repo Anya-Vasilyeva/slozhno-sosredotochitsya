@@ -1,5 +1,452 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  background-color: var(--theme-background-clr);
+  background-image: var(--cover-img);
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header, .main, .footer {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.header {
+  width: 100%;
+  min-height: 668px; /* Минимальная высота 668px */
+  height: 100vh; /* Растягивание на всю высоту экрана */
+  box-sizing: border-box;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  grid-template-columns: auto;
+  overflow-y: auto; /* Добавляем полосу прокрутки при необходимости */
+}
+
+/* Стили для декоративных уголков */
+.decorated-zone::before,
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+
+/* Задание стилей с использованием единой сущности */
+.decorated-zone::before {
+  border-top: 1px solid var(--dec-el);
+  border-right: 1px solid var(--dec-el);
+  top: 10px;
+  right: 10px;
+}
+
+.decorated-zone::after {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 1px solid var(--dec-el);
+  border-left: 1px solid var(--dec-el);
+}
+
+.rec-label {
+  position: absolute;
+  justify-self: flex-end;
+  color: var(--dec-el);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+  font-weight: 400; /* Обычный (Regular) */
+  line-height: 1.5625rem;
+  top:10px;
+  right: 39px;
+}
+
+.rec-label::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  right: -20px;
+  background-color: var(--dec-el);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--dec-el);
+}
+
+.header__theme-menu {
+  align-self: center;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  width: 70px;
+  height: 28px;
+  background-color: transparent;
+  color: var(--button-lable-color);
+  font-weight: 400;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  line-height: 100%;
+  font-style: normal;
+  text-transform: lowercase;
+  padding: 0px 13px;
+  cursor: pointer;
+}
+
+.header__theme-menu-button_active {
+  /* Делаем кнопку недоступной для клика */
+  pointer-events: none;
+  border: 1px solid var(--button-border-color);
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var( --bttn-brdr-clr-hvr);
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--bttn-clr-focus);
+  outline: none;
+}
+
+.header__title {
+  color: var(--title-txt-clr);
+  text-shadow: var(--txt-shadow);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--title-font-size-mobile);
+  font-weight: 700;
+  line-height: 82.5%;
+  grid-row: 2;
+  justify-self: start;
+}
+
+.header__subtitle {
+  text-wrap: wrap;
+  color: var(--subtitle-txt-clr);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+  grid-row: 3;
+  align-self:center;
+  justify-self: end;
+  margin-bottom: 10px;
+}
+
+.title-decor {
+  background-color: var(--subtitle-backgrnd);
+}
+
+.intro-section,
+.challenges-section,
+.tips-section {
+  margin-bottom: 50px;
+}
+
+.intro-section {
+  margin-block-start: 40px;
+}
+
+.article {
+  margin-block-start: 20px;
+}
+
+.tips-section .subsection-title {
+  margin-block-start: 20px;
+}
+
+.gallery-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  color: var(--main-content-subtitle);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 130%;
+  font-style: normal;
+}
+
+.subsection-title {
+  color: var(--main-subtitle-txt-clr);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 130%;
+  font-style: normal;
+}
+
+.main-content-txt {
+  margin-block-start: 10px;
+  color: var(--main-txt-clr);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 130%;
+  font-style: normal;
+}
+
+.article-link {
+  text-decoration: none;
+  text-shadow: var(--link-shadow);
+}
+
+.article-link:hover {
+  border-bottom: 1px solid var(--link-hover);
+}
+
+.article-link:focus {
+  padding: 0px 2px;
+  outline: none;
+  border: 1px solid var(--link-hover);
+}
+
+.sub-subsection-title {
+  margin-block-start: 20px;
+  color: var(--sub-subsection-title-txt-clr);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 130%;
+  font-style: normal;
+}
+
+.img-container {
+  margin-block-start: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* Добавляем object-position */
+}
+
+.footer {
+  width: 100%;
+  min-height: 668px;
+  height: 100vh; /* Растягивание на всю высоту экрана */
+  display: flex;
+  padding-block-start: 10px;
+  padding-block-end: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.footer-title {
+  font-size: var(--title-font-size-mobile);
+  color:var(--title-txt-clr);
+  text-shadow: var(--footer-shadow);
+  font-family: 'IBM Plex Mono', monospace;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 82.5%;
+}
+
+@media screen and (width >= 768px) {
+
+  /* Здесь стили для планшетов */
+
+  .header, .main, .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .header {
+    padding-block-start: 20px;
+    padding-block-end: 20px;
+  }
+
+  .decorated-zone::before {
+    top: 20px;
+    right: 20px;
+  }
+
+  .decorated-zone::after {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .rec-label {
+    top: 20px;
+    right: 50px;
+  }
+
+  .rec-label::after {
+    right: -20px;
+  }
+
+  .header__title {
+    margin-left: -20px;
+    font-size: var(--title-font-size-desktop); /* Используем переменную для планшетов и десктопов */
+  }
+
+  .header__subtitle {
+    width: 50%; /* Занимает 50% ширины контейнера */
+    margin-bottom: 0;
+  }
+
+  main section:not(:last-child) {
+    margin-bottom: 80px;
+  }
+
+  main section:last-child {
+    margin-bottom: 60px;
+  }
+
+  .intro-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 20px; /* Задаем промежуток между колонками */
+    margin-block-start: 60px;
+  }
+
+  /* Стили для всех блоков article */
+  .intro-section .article {
+    grid-column: 2 / 3; /* Занимает второй столбец (2/3 ширины) */
+    max-height: max-content; /* Максимальная высота контента */
+    margin-block-start: 0;
+  }
+
+  .intro-section .article:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  /* Стили для первого блока */
+  .section-title {
+    grid-column: 1 / 2; /* Занимает первый столбец (1/3 ширины) */
+    grid-row: span 2; /* Занимает 2 строки (вся высота контейнера) */
+  }
+
+  .challenges-section .section-title {
+    width: calc((100% - 40px)/3); /*Вычитаем 40px (20px слева и 20px справа) из 1/3 всей строки*/
+  }
+
+  .tips-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    column-gap: 20px; /* Задаем промежуток между колонками */
+  }
+  .tips-section article {
+    margin-block-start: 0;
+  }
+
+  .tips-section .section-title {
+    grid-row: 1 / span 11;
+    grid-column: 1 / span 1;
+  }
+
+  .tips-section .subsection-title {
+    margin-block-start: 0;
+  }
+
+  .tips-section .sub-subsection-title {
+    margin-block-start: 20px;
+  }
+
+  .img-container {
+    margin-block-start: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .subsection-title {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .gallery-section {
+    gap: 20px;
+  }
+
+  .gallery-img:nth-child(1) {
+    grid-column: 1 / 3; /*Закат на море*/
+    grid-row: 1/2; /* 1 строка */
+  }
+
+  .gallery-img:nth-child(2) {
+    grid-column: 3 / 4; /*Каваи мороженое*/
+    grid-row: 1 /3;
+  }
+
+  .gallery-img:nth-child(3) {
+    grid-column: 1 / 2; /*Кассета с магнитофоном*/
+    grid-row: 2 / 4;
+  }
+
+  .gallery-img:nth-child(4) {
+    grid-column: 2 / 3; /*Стопка книг*/
+    grid-row: 2/ 3;
+  }
+
+  .gallery-img:nth-child(5) {
+    grid-column: 2 / 4; /*Городская улица*/
+    grid-row: 3/ 4;
+  }
+
+  .footer {
+    padding-block-start: 20px;
+    padding-block-end: 20px;
+  }
+
+  .footer-title {
+    font-size: var(--title-font-size-desktop); /* Используем переменную для планшетов и десктопов */
+  }
+}
+
+@media screen and (width >= 1024px) {
+
+  /* Здесь описывайте стили для больших экранов */
+
+  .header__theme-menu {
+    align-self: flex-start;
+    justify-self: center;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .header__title {
+    text-shadow: 4px 4px 0px #FF0070;
+  }
+
+  .intro-section {
+    column-gap: 12px;
+  }
+
+  .tips-section {
+    column-gap: 12px;
+  }
+
+  .challenges-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: max-content;
+    column-gap: 20px;
+  }
+
+  .challenges-section .section-title {
+    grid-column: 1/4;
+  }
+
 }
