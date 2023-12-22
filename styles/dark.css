@@ -5,23 +5,47 @@
 */
 
 .page.theme_dark {
-  --bg-color: #000028;
-  --bg-image: url(./../images/cover-image-dark.png);
-
-  --main-title-color: #db00ff;
-  --main-title-shadow: #ff0070;
-
-  --title-color: #000028;
-  --text-color: #f1b2ce;
-
-  --decor-color: #ff0070;
-  --accent-color: #ff0070;
-
-  --hover-border: rgba(255, 0, 112, 0.4);
+  --link-hover: #F1B2CE;
+  --theme-background-clr: #00183F;
+  --button-lable-color: #FF0070;
+  --button-border-color: #FF0070;
+  --bttn-brdr-clr-hvr: rgba(255, 0, 112, 0.40);
+  --bttn-clr-focus:#FF0070;
+  --cover-img: url('../images/cover-image-dark.png');
+  --title-txt-clr: #DB00FF;
+  --txt-shadow: 4px 4px 0px #FF0070;
+  --subtitle-txt-clr:#000028;
+  --subtitle-backgrnd:#FF0070;
+  --main-content-subtitle:#FF0070;
+  --main-subtitle-txt-clr: #000028;
+  --main-txt-clr: #F1B2CE;
+  --link-shadow: 2px 2px 0px #FF0070;
+  --sub-subsection-title-txt-clr: #000028;
+  --dec-el:#FF0070;
+  --dis-none: visible; /* Элементы будут видимы в тёмной теме */
+  --footer-shadow: 2px 2px 0px #FF0070;
 }
 
-@media (prefers-color-scheme: dark) {
-  .page.theme_auto .header__decorative-element {
-    display: flex;
+@media (prefers-color-scheme:dark) {
+  :root {
+    --link-hover: #F1B2CE;
+    --theme-background-clr: #000028;
+    --button-lable-color: #FF0070;
+    --button-border-color: #FF0070;
+    --bttn-brdr-clr-hvr: rgba(255, 0, 112, 0.40);
+    --bttn-clr-focus:#FF0070;
+    --cover-img: url('../images/cover-image-dark.png');
+    --title-txt-clr: #DB00FF;
+    --txt-shadow: 4px 4px 0px #FF0070;
+    --subtitle-txt-clr:#000028;
+    --subtitle-backgrnd:#FF0070;
+    --main-content-subtitle:#FF0070;
+    --main-subtitle-txt-clr: #000028;
+    --main-txt-clr: #F1B2CE;
+    --link-shadow: 2px 2px 0px #FF0070;
+    --sub-subsection-title-txt-clr: #000028;
+    --dec-el:#FF0070;
+    --dis-none: visible; /* Элементы будут видимы в тёмной теме */
+    --footer-shadow: 2px 2px 0px #FF0070;
   }
 }
